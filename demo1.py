@@ -1,10 +1,16 @@
-from flask import Flask,request ,redirect
+from flask import Flask,request ,redirect ,render_template,url_for
 from decouple import config
 from datetime import date
 import json
 import socket   
+import os
+
+IMAGE_FOLDER = os.path.join('static',"imgs")
+
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = IMAGE_FOLDER
+app._static_folder = './templates/static/'
 @app.route('/') 
 def home():
     hostname=socket.gethostname()
@@ -17,10 +23,17 @@ def home():
     # jdata = json.loads(data)
     json_object = json.dumps(data)
     return json_object
-@app.route('/ip')
+@app.route('/about')
 def ip():
-    ip_address = request.remote_addr
-    return "Requester IP: " + ip_address 
+    img1 = os.path.join(app.config['UPLOAD_FOLDER'], 'IMG_1304.jpg')
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'IMG_1309.jpg')
+    img3 = os.path.join(app.config['UPLOAD_FOLDER'], 'IMG_1305.jpg')
+    img4 = os.path.join(app.config['UPLOAD_FOLDER'], 'IMG_1306.jpg')
+    img5 = os.path.join(app.config['UPLOAD_FOLDER'], 'IMG_1307.jpg')
+    # img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'image.jpg')
+    
+    # img4 = os.path.join(app.config['UPLOAD_FOLDER'], 'image.jpg')
+    return render_template("./about.html",user_img1 = img1,user_img2 = img2,user_img3 = img3,user_img4 = img4,user_img5 = img5)
 
 
 @app.route('/status/<URL>')
@@ -36,4 +49,3 @@ if __name__ == '__main__':
     # app.run()
     print("this is the line before the app.run command")
     app.run(host=config('HOST'), port=config('PORT'))
-    print(app)
