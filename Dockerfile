@@ -1,4 +1,4 @@
-FROM Python:3.10.5-alpine
+FROM quay.io/balagokulkuberox/python
 
 WORKDIR /usr/src/app
 
