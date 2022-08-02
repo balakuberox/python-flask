@@ -1,4 +1,4 @@
-FROM python:3
+FROM quay.io/balagokulkuberox/python
 
 WORKDIR /usr/src/app
 
