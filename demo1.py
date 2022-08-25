@@ -19,7 +19,7 @@ def home():
     print("Your Computer IP Address is:"+IPAddr)
     today = date.today()
     today=today.strftime("%d%m%Y")
-    data={"ip_address":IPAddr, "port":config('PORT'), "hostname":hostname, "date":today, "authoris":bala}
+    data={"ip_address":IPAddr, "port":config('PORT'), "hostname":hostname, "date":today, "authoris":"bala"}
     # jdata = json.loads(data)
     json_object = json.dumps(data)
     return json_object
