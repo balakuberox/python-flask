@@ -1,0 +1,18 @@
+schemaVersion: 2.1.0
+metadata:
+  name: aws-cli
+components:
+  - name: aws-cli
+    container:
+      image: quay.io/balagokul/universal-developer-image:aws-cli
+      volumeMounts:
+        - name: venv
+          path: /home/user/.venv
+      memoryLimit: '2Gi'
+      memoryRequest: '1Gi'
+      cpuLimit: '2'
+      cpuRequest: '1'
+      mountSources: true
+  - name: venv
+    volume:
+      size: 1G

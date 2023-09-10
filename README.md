@@ -1,2 +1,3 @@
-# python-flask
-this is a job which is assigned to me on 29/06/2022
+# python-hello-world
+
+A simple program that displays “Hello, World!”. It's often used to illustrate the syntax of the language.
