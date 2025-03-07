@@ -5,6 +5,7 @@ exceptiongroup==1.0.1
 filelock==3.8.2
 flake8==6.0.0
 flask
+decouple
 iniconfig==1.1.1
 mccabe==0.7.0
 packaging==21.3
